@@ -11,13 +11,13 @@ return {
     },
     {
         'akinsho/toggleterm.nvim',
-        version = "*",
+        version = '*',
         config = function()
-          require('toggleterm').setup {
-            open_mapping = [[<C-\>]], -- Open with Ctrl + \
-            direction = "float",       -- Floating terminal
-            shade_terminals = true
-          }
-        end
-      }
+            require('toggleterm').setup {
+                open_mapping = [[<C-\>]], -- Open with Ctrl + \
+                direction = 'float', -- Floating terminal
+                shade_terminals = true,
+            }
+        end,
+    },
 }
