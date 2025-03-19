@@ -172,6 +172,13 @@ require('lazy').setup({
             vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
             vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
             vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
+            vim.keymap.set('n', '<leader>sa', function()
+                require('telescope.builtin').find_files {
+                    hidden = true, -- Show hidden files
+                    no_ignore = true, -- Include ignored files
+                    file_ignore_patterns = { '^.git/', '^.DS_Store/' }, -- Exclude .git folder
+                }
+            end, { desc = '[S]earch [F]iles' })
             vim.keymap.set('n', '<leader>sg', builtin.git_files, { desc = '[S]earch [G]it files' })
             vim.keymap.set('n', '<leader>ss', builtin.builtin, { desc = '[S]earch [S]elect Telescope' })
             vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
@@ -641,8 +648,7 @@ require('lazy').setup({
     -- require 'kickstart.plugins.lint',
     -- require 'kickstart.plugins.autopairs',
     require 'kickstart.plugins.neo-tree',
-    -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
-
+    --   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
     --  Uncomment the following line and add  your plugins to `lua/custom/plugins/*.lua` to get going.
     { import = 'custom.plugins' },
     --
