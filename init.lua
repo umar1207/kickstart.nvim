@@ -31,8 +31,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+-- vim.opt.list = true
+-- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
@@ -402,6 +402,10 @@ require('lazy').setup({
             formatters_by_ft = {
                 lua = { 'stylua' },
                 javascript = { 'prettierd', 'prettier', stop_after_first = true },
+                typescript = { 'prettierd', 'prettier', stop_after_first = true },
+                json = { 'prettierd', 'prettier', stop_after_first = true },
+                yaml = { 'prettierd', 'prettier', stop_after_first = true },
+                html = { 'prettierd', 'prettier', stop_after_first = true },
             },
         },
     },
@@ -622,9 +626,9 @@ require('lazy').setup({
                 -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
                 --  If you are experiencing weird indenting issues, add the language to
                 --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-                additional_vim_regex_highlighting = { 'ruby' },
+                additional_vim_regex_highlighting = { 'ruby', 'javascript' },
             },
-            indent = { enable = true, disable = { 'ruby' } },
+            indent = { enable = true, disable = { 'ruby', 'javascript' } },
         },
         -- There are additional nvim-treesitter modules that you can use to interact
         -- with nvim-treesitter. You should go explore a few and see what interests you:
@@ -646,7 +650,7 @@ require('lazy').setup({
     -- require 'kickstart.plugins.debug',
     -- require 'kickstart.plugins.indent_line',
     -- require 'kickstart.plugins.lint',
-    -- require 'kickstart.plugins.autopairs',
+    require 'kickstart.plugins.autopairs',
     require 'kickstart.plugins.neo-tree',
     --   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
     --  Uncomment the following line and add  your plugins to `lua/custom/plugins/*.lua` to get going.
